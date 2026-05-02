@@ -5,7 +5,7 @@ dotenv.config();
 
 export default defineConfig({
   testDir: './tests',
-  // globalSetup: './GlobalSetup.js',
+  globalSetup: './GlobalSetup.js',
   timeout: 30000,
   expect: {
     timeout: 5000,

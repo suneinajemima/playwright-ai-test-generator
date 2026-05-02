@@ -1,6 +1,6 @@
-import{chromium,expect} from '@playwright/test';
+import{ chromium,expect } from '@playwright/test';
 import dotenv from 'dotenv';
-import { LoginPage } from './pages/LoginPage';
+import { LoginPage } from './pages/LoginPage.js';
 
 dotenv.config();
 

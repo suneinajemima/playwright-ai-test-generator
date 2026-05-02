@@ -5,12 +5,9 @@ import { LoginPage } from '../pages/LoginPage';
 const testdata = JSON.parse(JSON.stringify(require("../test-data/LogintestData.json")))
 test.use({ storageState: undefined });
 
-test.describe('All tests', async () => {
+test.describe('All Login tests', async () => {
 
   test('Valid login scenario',async ({page}) => {
-    // const browser= await chromium.launch();
-    // const context= await browser.newContext();
-    // const page= await context.newPage();
     const loginpage=new LoginPage(page);
     await loginpage.navigateToPage();
     await loginpage.loginScenario(process.env.Sauce_USERNAME, process.env.Sauce_PASSWORD);
@@ -28,14 +25,12 @@ test.describe('All tests', async () => {
     
 
   } )
-  test.only('Locked-User login scenario',async ({page}) => {
+  test('Locked-User login scenario',async ({page}) => {
     const loginpage=new LoginPage(page);
     await loginpage.navigateToPage();
     await loginpage.loginScenario(testdata.locked_user.username,testdata.locked_user.password);
     await loginpage.validateLockedUserLogin();
-    
-
-  } )
+    } )
 
 
 });
