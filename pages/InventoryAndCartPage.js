@@ -11,6 +11,8 @@ export class InventoryAndCartPage{
         this.cartCountinInventoryPage=page.locator('.shopping_cart_badge');  
         this.sortButton=page.locator('.product_sort_container');
         this.inventoryItemPriceLocator=this.inventoryitems.locator('.inventory_item_price');
+        this.hamburgerMenuButton=page.locator('#react-burger-menu-btn');
+        this.aboutLink=page.locator('#about_sidebar_link');
     }
 
     async verifylogin(){
@@ -101,8 +103,12 @@ export class InventoryAndCartPage{
 
         }
 
+    async openHamburgerMenu(){
+        await this.hamburgerMenuButton.click();
+    }
 
-
-    
+    async clickAbout(){
+        await this.aboutLink.click();
+    }
 
 }
