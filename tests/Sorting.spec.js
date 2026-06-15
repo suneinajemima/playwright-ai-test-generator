@@ -24,4 +24,12 @@ test.describe('All sorting related tests', async ()=>
 
 
     })
+
+    test('sorting in alphabetical order', async({page})=>{
+        await page.goto(`${process.env.BASE_URL}/inventory.html`);
+        const inventoryandcart=new InventoryAndCartPage(page);
+        await inventoryandcart.verifylogin();
+        await inventoryandcart.sortinginalphabeticalorderreversed();
+
+    })
 })

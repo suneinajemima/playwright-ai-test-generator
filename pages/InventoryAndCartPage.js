@@ -40,6 +40,7 @@ export class InventoryAndCartPage{
         await this.cartCountinInventoryPage.click();
         await expect(this.page).toHaveURL('https://www.saucedemo.com/cart.html');
         return ExpectedinventoryItemName;
+        
 
         
 
@@ -98,6 +99,18 @@ export class InventoryAndCartPage{
                }
 
             
+
+        }
+
+        async sortinginalphabeticalorderreversed(){
+            const inventoryItemnames=await this.inventoryItemNameLocator.allInnerTexts();
+            inventoryItemnames.sort((a,b)=>b.localeCompare(a));
+            await this.sortButton.selectOption('Name (Z to A)');
+            const InventoryItemNamesAfterSorting=await this.inventoryItemNameLocator.allInnerTexts();
+            for(let i = 0; i <inventoryItemnames.length;i++){
+                await expect(inventoryItemnames[i]).toEqual(InventoryItemNamesAfterSorting[i])
+            } 
+
 
         }
 

@@ -8,6 +8,8 @@ export class CartPage{
         this.removedCartItem=page.locator('.removed_cart_item');
         this.cartItemCount=page.locator('.shopping_cart_badge');
         
+        
+        
     }
 
     async validateCart(ExpectedinventoryItemName){
@@ -26,7 +28,6 @@ export class CartPage{
             
         }
         await expect(this.cartItemCount).toHaveText((ActualinventoryItemName.length).toString())
-        
     
     }
 
@@ -36,7 +37,7 @@ export class CartPage{
         await expect(requiredCartItem).not.toBeVisible();
         await expect(this.removedCartItem).toBeAttached();
         await expect(this.cartItems).toHaveCount(0);
-
-
     }
+
+
 }
